@@ -324,6 +324,7 @@ process GATK_GENOTYPE_GVCFS {
 
 process GATK_SELECT_VARIANTS {
     tag "$dbname"
+    publishDir "${params.outdir}/selected_variants", mode: 'copy'
     input:
     tuple val(dbname), path(vcf), path(idx)
     val(ref)
